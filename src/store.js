@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-function createGrid() {
+export function createGrid() {
     const grid = [];
 
     for (let i = 0; i < 6; i++)
@@ -15,4 +15,15 @@ function createGrid() {
     return grid;
 }
 
+export const gameInfo = writable({
+    char:0,
+    attempt: 0,
+});
+
+export const gameOver = writable(false);
+export const WORD_LIST = [];
+
+export const GAME_WORD = writable("HELLO");
+export const guess = writable("");
+export const colors = writable(createGrid());
 export const board = writable(createGrid());

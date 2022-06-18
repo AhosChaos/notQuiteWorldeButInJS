@@ -1,14 +1,24 @@
 <script>
+	import { gameOver } from "./store";
+	console.log(gameOver);
+	import { fade } from "svelte/transition";
 	import Keyboard from "./components/Keyboard.svelte";
 	import Board from "./components/Board.svelte";
+	import GameOver from "./components/GameOver.svelte";
 
 </script>
 
 
 <main>
 	<nav>notQuiteWordle</nav>
-	<Board />
-	<Keyboard />
+	{#if $gameOver}
+		<GameOver />
+	{:else}
+		<div in:fade={{duration: 800}}>
+			<Board />
+			<Keyboard />
+		</div>
+	{/if}
 
 
 </main>

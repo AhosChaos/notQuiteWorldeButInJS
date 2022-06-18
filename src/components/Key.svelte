@@ -1,8 +1,9 @@
 <script>
     export let char;
+    export let keyPress;
 </script>
 
-<div class="key">
+<div class="key" on:click={() => keyPress(char.toUpperCase())}>
     {char.toUpperCase()}
 </div>
 
