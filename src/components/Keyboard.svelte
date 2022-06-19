@@ -1,6 +1,6 @@
 <script>
     import Key from "./Key.svelte"
-    import { board, gameInfo, colors, GAME_WORD, guess, gameOver } from "../store";
+    import { board, gameInfo, colors, GAME_WORD, guess, gameOver, WORD_LIST } from "../store";
 
 
     const row1 = ['q','w','e','r','t','y','u','i','o','p'];
@@ -30,16 +30,22 @@
         
         if ($gameInfo.char != 5)
             return;
+        else if (!WORD_LIST.includes($guess))
+            return;
 
         gameInfo.set({
             attempt: attempt + 1,
             char: 0
         })
 
+
         const prevAttempt = $gameInfo.attempt - 1;
         const newColorsBoard =  $colors;
 
         const dupChars = new Set();
+
+
+
 
         for (let i = 0; i < 5; i++)
         {

@@ -5,7 +5,7 @@
         gameInfo.set({
             attempt: 0, char: 0
         });
-        const word = wordsList[Math.floor(Math.random() * WORD_LIST.length())]
+        const word = WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)]
         GAME_WORD.set(word)
 
         guess.set("");
